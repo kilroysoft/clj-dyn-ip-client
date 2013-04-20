@@ -22,8 +22,7 @@
 
 (defn- host
   []
-  (clojure.string/trim (:out (sh "hostname")))
-  )
+  (clojure.string/trim (:out (sh "hostname"))))
 
 (defn- now [] (new java.util.Date))
 
@@ -34,11 +33,8 @@
                  CHANGE 
                  (str host) ip))
     ip
-    (catch Exception e nil))
-)
+    (catch Exception e nil)))
 
-(send-server "" "")        
-        
 (defn- loop-sync
   []
   (when @*active-sync*
